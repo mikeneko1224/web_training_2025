@@ -1,0 +1,25 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib", // TypeScriptのバージョンを指定
+    "typescript.enablePromptUseWorkspaceTsdk": true, // TypeScriptのバージョンをワークスペースのものにする
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // デフォルトのフォーマッターをPrettierにする
+    "editor.formatOnSave": true, // フォーマットを保存時に実行
+    "protoc": {
+        "options": ["--proto_path=proto/Proto/"]
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none",
+    "cSpell.words": [
+        "clsx",
+        "fabistrano",
+        "ginzan",
+        "gitmodules",
+        "linku",
+        "npmrc",
+        "placehold",
+        "preinstall",
+        "proto",
+        "trivago"
+    ]
+}
