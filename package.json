@@ -35,6 +35,6 @@
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "protobufjs": "^7.2.2",
-    "protobufjs-cli": "^1.1.1"
+    "protobufjs-cli": "^1.1.3"
   }
 }

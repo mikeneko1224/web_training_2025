@@ -1,0 +1,3 @@
+[submodule "web_training_2025_proto"]
+	path = web_training_2025_proto
+	url = git@github.com:daifuku-cha/web_training_2025_proto.git
