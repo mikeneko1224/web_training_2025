@@ -26,7 +26,7 @@ npx pbjs \
     --no-create \
     -t static-module \
     -w es6 \
-    -o src/generated/protocol.js $(find ./web_training_2025_proto/** -type f -name *.proto | sort)  ## 環境によって find の並び順が狂わないように sort している
+    -o src/generated/protocol.js $(find ./proto -type f -name *.proto | sort)  ## 環境によって find の並び順が狂わないように sort している
 
 ## 生成 js に対する型定義ファイル (ts) を生成
 npx pbts -o src/generated/protocol.d.ts src/generated/protocol.js
