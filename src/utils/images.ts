@@ -119,3 +119,10 @@ export const login: ImageModel = {
     width: 20,
     height: 20,
 }
+
+export const Group_916: ImageModel = {
+    src: '/Group 916.png',
+    alt: 'Group_916',
+    width: 64,
+    height: 64,
+}

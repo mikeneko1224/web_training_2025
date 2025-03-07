@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import MyImage from '@/components/MyImage'
 import {
     ChevronRightBlackIcon,
+    Group_916,
     JasracIcon,
     ShareFBIcon,
     ShareLNIcon,
@@ -9,6 +10,7 @@ import {
 } from '@/utils/images'
 
 const FooterItem: FC<{ title: string }> = ({ title }) => {
+    // console.log("こんにちは");
     return (
         <td className='flex w-64 flex-row-reverse border-b border-r border-white px-3 py-4 text-right text-xs'>
             <MyImage image={ChevronRightBlackIcon} className='ml-2' />
@@ -53,7 +55,7 @@ export const Footer: FC = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col items-center gap-2 bg-black pb-5'>
+            <div className='relative flex flex-col items-center gap-2 bg-black pb-5'>
                 <p className='py-3 text-center text-[10px] text-white'>
                     ABJマークは、この電子書店・電子書籍配信サービスが、著作権者からコンテンツ使用許諾を得た正規版配信サービスであることを示す登録商標(登録番号
                     第6091713号)です。
@@ -79,6 +81,9 @@ export const Footer: FC = () => {
                 <p className='text-center text-[10px] text-white'>
                     © 2023 SQUARE ENIX CO., LTD. All Rights Reserved.
                 </p>
+                <div className='absolute bottom-[20px] left-[20px]'>
+                    <MyImage image={Group_916} />
+                </div>
             </div>
         </div>
     )
