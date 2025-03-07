@@ -105,3 +105,17 @@ export const JasracIcon: ImageModel = {
     width: 36,
     height: 36,
 }
+
+export const logo_b: ImageModel = {
+    src: '/logo_b 1.png',
+    alt: 'logo_b',
+    width: 92,
+    height: 10,
+}
+
+export const login: ImageModel = {
+    src: '/login.svg',
+    alt: 'logo_b',
+    width: 20,
+    height: 20,
+}

@@ -1,6 +1,8 @@
 import './globals.css'
 import { Footer } from '@/components/layouts/footer/Footer'
 import { Header } from '@/components/layouts/header/Header'
+import MyImage from '@/components/MyImage'
+import { logo_b } from '@/utils/images'
 
 export const metadata = {
     title: 'まんがWeb',
@@ -16,7 +18,7 @@ export default function RootLayout({
         <html lang='ja'>
             <body>
                 <header>
-                    <div className='h-[26px] bg-black' />
+                    <div className='h-[26px] bg-black'><div className='py-2 pl-[20px]'><MyImage image={logo_b} /></div></div>
                     <Header />
                 </header>
                 {children}
