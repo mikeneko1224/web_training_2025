@@ -14,7 +14,7 @@ export const TopVolumeListSection: FC<Props> = ({ volumes }) => {
             hrefText='単行本一覧へ'
             href='/volume'
         >
-            <div className='flex gap-5'>
+            <div className='grid grid-cols-4 gap-5'>
                 {volumes.map((volume) => (
                     <ListRow key={volume.id} volume={volume} />
                 ))}
