@@ -17,7 +17,7 @@ export const TopSectionContainer: FC<Props> = ({
     children,
 }) => {
     return (
-        <div className='mx-auto flex max-w-5xl flex-col gap-3'>
+        <div className='mx-auto flex max-w-5xl flex-col gap-3 py-[48px]'>
             <div className='flex items-center justify-between'>
                 <h2 className='text-[24px] font-semibold text-[#333333]'>
                     {headlineText}

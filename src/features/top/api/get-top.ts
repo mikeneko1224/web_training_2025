@@ -1,5 +1,5 @@
-import { TopModel } from '../models/top.model'
-import { TopTranslator } from './top.translator'
+import { TopModel, UpdateModel } from '../models/top.model'
+import { TopTranslator, TopUpdateTranslator } from './top.translator'
 import { apiClient } from '@/api/api-client'
 import { Endpoint } from '@/api/endpoint'
 import { Proto } from '@/generated/protocol'
@@ -16,4 +16,9 @@ const endpoint: Endpoint<Proto.ITopView> = {
 export const getTop: () => Promise<TopModel> = async () => {
     const data = await apiClient(endpoint)
     return TopTranslator.translate(data)
+}
+
+export const getUpdateTop: () => Promise<UpdateModel> = async () => {
+    const data = await apiClient(endpoint)
+    return TopUpdateTranslator.translate(data)
 }
