@@ -6,23 +6,16 @@ import {
     TopUpdateListSection,
     TopVolumeListSection,
 } from '@/features/top/components'
-import { volumeModelMock } from '@/utils/mocks'
 
 const TopPage = async () => {
     const model = await getTop()
-    const { banners, update } = model
+    const { banners, update, volumes } = model
 
-    const volumes = [
-        volumeModelMock(1),
-        volumeModelMock(2),
-        volumeModelMock(3),
-        volumeModelMock(4),
-    ]
     return (
         <div className='flex flex-col gap-2 pb-9'>
             <TopCarousel banners={banners} />
             <Divider />
-            <TopUpdateListSection volumes={update} />
+            <TopUpdateListSection titles={update} />
             <Divider />
             <TopVolumeListSection volumes={volumes} />
         </div>
