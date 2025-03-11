@@ -1,7 +1,6 @@
 import React from 'react'
 import { Divider } from '@/components/Divider'
 import { getTop } from '@/features/top/api/get-top'
-import { getUpdateTop } from '@/features/top/api/get-top'
 import {
     TopCarousel,
     TopUpdateListSection,
@@ -11,9 +10,7 @@ import { volumeModelMock } from '@/utils/mocks'
 
 const TopPage = async () => {
     const model = await getTop()
-    const updatemodel = await getUpdateTop()
-    const { banners } = model
-    const { Update } = updatemodel
+    const { banners, update } = model
 
     const volumes = [
         volumeModelMock(1),
@@ -25,7 +22,7 @@ const TopPage = async () => {
         <div className='flex flex-col gap-2 pb-9'>
             <TopCarousel banners={banners} />
             <Divider />
-            <TopUpdateListSection volumes={Update} />
+            <TopUpdateListSection volumes={update} />
             <Divider />
             <TopVolumeListSection volumes={volumes} />
         </div>

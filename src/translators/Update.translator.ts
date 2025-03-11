@@ -4,7 +4,7 @@ import { AuthorModel } from '@/models/author.model'
 import { TitleModel } from '@/models/title.model'
 import { VolumeModel } from '@/models/volume.model'
 
-export const UpdateTranslator = {
+export const TitleTranslator = {
     translate: (proto: Proto.ITitle): TitleModel => {
         return {
             id: proto.id as number,

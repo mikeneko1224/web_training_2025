@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { TopSectionContainer } from './layouts/TopSectionContainer'
+import { Badge } from '@/components/Badge'
 import MyImage from '@/components/MyImage'
 import { TitleModel } from '@/models/title.model'
 
@@ -28,9 +29,7 @@ const ListRow: FC<{ volume: TitleModel }> = ({ volume }) => {
         <div className='flex h-[336px] flex-col gap-2'>
             <div className='relative'>
                 <MyImage image={volume.thumbnail} />
-                <div className='absolute left-0 top-0 bg-[#B61F22] px-[5px] py-[2px] text-[13px] text-[#FFF]'>
-                    新連載
-                </div>
+                <Badge />
             </div>
             <div className='flex h-[83px] flex-col gap-[2px]'>
                 <h3 className='text-[16px] font-bold text-[#333333]'>
