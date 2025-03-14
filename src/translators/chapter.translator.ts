@@ -8,7 +8,7 @@ export const ChapterTranslator = {
         return {
             id: proto.id as number,
             name: proto.name as string,
-            subName: proto.name as string,
+            subName: proto.subName as string,
             period: proto.period as PeriodModel,
             thumbnail: ImageTranslator.translate(
                 proto.thumbnail as Proto.IImage

@@ -135,21 +135,21 @@ export const Iconmonstr: ImageModel = {
 }
 
 export const ShareFBIcon2: ImageModel = {
-    src: '/share.fb.png',
+    src: '/facebook_icon.png',
     alt: 'Share Facebook',
     width: 32,
     height: 32,
 }
 
 export const ShareTWIcon2: ImageModel = {
-    src: '/share.tw.png',
+    src: '/Twitter_icon.png',
     alt: 'Share Twitter',
     width: 32,
     height: 32,
 }
 
 export const ShareLNIcon2: ImageModel = {
-    src: '/share.ln.png',
+    src: '/LINE_icon.png',
     alt: 'Share Line',
     width: 32,
     height: 32,
