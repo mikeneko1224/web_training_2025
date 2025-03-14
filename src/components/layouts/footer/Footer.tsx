@@ -10,7 +10,6 @@ import {
 } from '@/utils/images'
 
 const FooterItem: FC<{ title: string }> = ({ title }) => {
-    // console.log("こんにちは");
     return (
         <td className='flex w-64 flex-row-reverse border-b border-r border-white px-3 py-4 text-right text-xs'>
             <MyImage image={ChevronRightBlackIcon} className='ml-2' />

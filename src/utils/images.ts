@@ -126,3 +126,31 @@ export const Group_916: ImageModel = {
     width: 64,
     height: 64,
 }
+
+export const Iconmonstr: ImageModel = {
+    src: '/iconmonstr-paper-plane-2.png',
+    alt: 'Iconmonstr',
+    width: 24,
+    height: 24,
+}
+
+export const ShareFBIcon2: ImageModel = {
+    src: '/share.fb.png',
+    alt: 'Share Facebook',
+    width: 32,
+    height: 32,
+}
+
+export const ShareTWIcon2: ImageModel = {
+    src: '/share.tw.png',
+    alt: 'Share Twitter',
+    width: 32,
+    height: 32,
+}
+
+export const ShareLNIcon2: ImageModel = {
+    src: '/share.ln.png',
+    alt: 'Share Line',
+    width: 32,
+    height: 32,
+}

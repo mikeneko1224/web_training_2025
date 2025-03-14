@@ -26,7 +26,6 @@ export const TopUpdateListSection: FC<Props> = ({ titles }) => {
 }
 
 const ListRow: FC<{ title: TitleModel }> = ({ title }) => {
-    const titleObj = JSON.stringify(title)
     return (
         <div className='flex h-[336px] flex-col gap-2'>
             <div className='relative'>
@@ -48,7 +47,7 @@ const ListRow: FC<{ title: TitleModel }> = ({ title }) => {
 
                 <Link
                     className='flex justify-center bg-[#6FBAF0] px-[10px] py-[12px] text-[16px] text-[#FFF]'
-                    href={{ pathname: `/detail`, query: titleObj }}
+                    href={`/title/${title.id}`}
                 >
                     作品詳細
                 </Link>
