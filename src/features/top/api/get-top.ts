@@ -15,6 +15,5 @@ const endpoint: Endpoint<Proto.ITopView> = {
 
 export const getTop: () => Promise<TopModel> = async () => {
     const data = await apiClient(endpoint)
-    console.log(data)
     return TopTranslator.translate(data)
 }

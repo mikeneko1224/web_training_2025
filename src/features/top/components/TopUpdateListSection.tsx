@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import Link from 'next/link'
 import { TopSectionContainer } from './layouts/TopSectionContainer'
 import { Badge } from '@/components/Badge'
 import MyImage from '@/components/MyImage'
@@ -13,7 +14,7 @@ export const TopUpdateListSection: FC<Props> = ({ titles }) => {
         <TopSectionContainer
             headlineText='今日の更新作品'
             hrefText='連載作品一覧へ'
-            href='/update'
+            href='/detail'
         >
             <div className='grid grid-cols-4 gap-[32px]'>
                 {titles.map((title) => (
@@ -43,9 +44,13 @@ const ListRow: FC<{ title: TitleModel }> = ({ title }) => {
                 <button className='bg-[#F5B437] px-[10px] py-[12px] text-[16px] text-[#FFF]'>
                     読む
                 </button>
-                <button className='bg-[#6FBAF0] px-[10px] py-[12px] text-[16px] text-[#FFF] '>
+
+                <Link
+                    className='flex justify-center bg-[#6FBAF0] px-[10px] py-[12px] text-[16px] text-[#FFF]'
+                    href={`/title/${title.id}`}
+                >
                     作品詳細
-                </button>
+                </Link>
             </div>
         </div>
     )
