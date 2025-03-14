@@ -26,7 +26,7 @@ export const CommicSummary: FC<Props> = ({ title }) => {
                 <MyImage image={title.thumbnail} />
             </div>
             <div className='flex w-[498px] flex-col gap-[20px]'>
-                <div className='text-[24px]'>{`${title.name} `}</div>
+                <div className='text-[24px] font-[700]'>{`${title.name} `}</div>
                 <div>{`${title.description} `}</div>
                 <div>
                     <div className='text-[#6B6B6B]'>{`${title.author.name} `}</div>
