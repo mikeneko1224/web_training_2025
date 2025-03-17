@@ -16,6 +16,7 @@ type Props = {
 }
 
 export const CommicSummary: FC<Props> = ({ title }) => {
+    console.log(title)
     const pathname = usePathname()
     const link = `http://localhost:3000${pathname}`
     const url = `http://twitter.com/share?url=${link}&text=${title.name}&hashtags=漫画`
