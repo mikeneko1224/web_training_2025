@@ -14,13 +14,19 @@ type Props = {
 }
 
 export const Book: FC<Props> = ({ title }) => {
+    const VolumeReleaceDate = title.volume.releaseDate
+    const VolumeDate = VolumeReleaceDate.replace(/-/g, '.')
+
+    const RelatedReleaceDate = title.relatedVolume.releaseDate
+    const RelatedVolumeDate = RelatedReleaceDate.replace(/-/g, '.')
+
     return (
         <div className='mx-auto flex max-w-5xl gap-[16px] py-[32px]'>
             <div className='flex w-[504px] flex-col gap-[13px]'>
                 <div className='text-[24px] font-[600]'>単行本</div>
                 <div className='flex gap-[20px]'>
                     <MyImage
-                        className='w-[210px]'
+                        className='h-[299px] w-[210px]'
                         image={title.volume.thumbnail}
                     />
                     <div className='flex flex-col gap-[16px]'>
@@ -35,7 +41,7 @@ export const Book: FC<Props> = ({ title }) => {
                                 {title.volume.description}
                             </div>
                             <div className='text-[15px] font-[500] text-[#6B6B6B]'>
-                                {title.volume.releaseDate}
+                                {VolumeDate} 発売！
                             </div>
                         </div>
                         <div className='flex flex-col gap-[8px]'>
@@ -66,7 +72,7 @@ export const Book: FC<Props> = ({ title }) => {
                 <div className='text-[24px] font-[600]'>関連書籍</div>
                 <div className='flex gap-[20px]'>
                     <MyImage
-                        className='w-[210px]'
+                        className='h-[299px] w-[210px]'
                         image={title.relatedVolume.thumbnail}
                     />
                     <div className='flex flex-col gap-[16px]'>
@@ -81,7 +87,7 @@ export const Book: FC<Props> = ({ title }) => {
                                 {title.relatedVolume.description}
                             </div>
                             <div className='text-[15px] font-[500] text-[#6B6B6B]'>
-                                {title.relatedVolume.releaseDate}
+                                {RelatedVolumeDate} 発売！
                             </div>
                         </div>
                         <div className='flex flex-col gap-[8px]'>
