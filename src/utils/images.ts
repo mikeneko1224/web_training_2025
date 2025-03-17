@@ -154,3 +154,31 @@ export const ShareLNIcon2: ImageModel = {
     width: 32,
     height: 32,
 }
+
+export const AmazonIcon: ImageModel = {
+    src: '/amazon.png',
+    alt: 'amazon',
+    width: 102,
+    height: 41,
+}
+
+export const SevenNetIcon: ImageModel = {
+    src: '/7net.png',
+    alt: '7net',
+    width: 102,
+    height: 41,
+}
+
+export const RakutenIcon: ImageModel = {
+    src: '/rakuten.png',
+    alt: 'rakuten',
+    width: 102,
+    height: 41,
+}
+
+export const DenshiIcon: ImageModel = {
+    src: '/denshi.png',
+    alt: 'denshi',
+    width: 102,
+    height: 41,
+}
