@@ -18,7 +18,6 @@ const endpoint: (id: number) => Endpoint<Proto.IViewerView> = (id: number) => ({
 export const getViewer: (id: number) => Promise<ViewerModel> = async (
     id: number
 ) => {
-    console.log(id)
     const data = await apiClient(endpoint(id))
     return ViewerTranslator.translate(data)
 }
