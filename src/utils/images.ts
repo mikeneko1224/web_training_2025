@@ -182,3 +182,10 @@ export const DenshiIcon: ImageModel = {
     width: 102,
     height: 41,
 }
+
+export const CloseIcon: ImageModel = {
+    src: '/CloseIcon.png',
+    alt: 'close',
+    width: 32,
+    height: 32,
+}

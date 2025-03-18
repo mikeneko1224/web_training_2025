@@ -41,9 +41,12 @@ const ListRow: FC<{ title: TitleModel }> = ({ title }) => {
                 </h2>
             </div>
             <div className='flex flex-col gap-2'>
-                <button className='bg-[#F5B437] px-[10px] py-[12px] text-[16px] text-[#FFF]'>
+                <Link
+                    className='flex justify-center bg-[#F5B437] px-[10px] py-[12px] text-[16px] text-[#FFF]'
+                    href={`/title/${title.id}/chapter/${title.firstChapterId}`}
+                >
                     読む
-                </button>
+                </Link>
 
                 <Link
                     className='flex justify-center bg-[#6FBAF0] px-[10px] py-[12px] text-[16px] text-[#FFF]'
