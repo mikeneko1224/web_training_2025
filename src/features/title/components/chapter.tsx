@@ -1,4 +1,7 @@
+'use client'
+
 import React, { FC } from 'react'
+import { usePathname } from 'next/navigation'
 import MyImage from '@/components/MyImage'
 import { ChapterModel } from '@/models/chapter.model'
 
@@ -20,8 +23,11 @@ export const Chapter: FC<Props> = ({ chapters }) => {
 }
 
 const ListRow: FC<{ chapter: ChapterModel }> = ({ chapter }) => {
+    const pathname = usePathname()
+    const url = `http://localhost:3000${pathname}/chapter/${chapter.id}`
+
     return (
-        <div className='flex gap-[20px]'>
+        <a className='flex gap-[20px]' href={url}>
             <div>
                 <MyImage className='w-[326px]' image={chapter.thumbnail} />
             </div>
@@ -29,6 +35,6 @@ const ListRow: FC<{ chapter: ChapterModel }> = ({ chapter }) => {
                 <div className='text-[20px] font-[700]'>{chapter.name}</div>
                 <div className='text-[18px]'>{chapter.subName}</div>
             </div>
-        </div>
+        </a>
     )
 }

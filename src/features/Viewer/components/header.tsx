@@ -5,9 +5,7 @@ export default function Header() {
     return (
         <div className='left-[0px] flex'>
             <div>header</div>
-            <button>
-                <MyImage image={CloseIcon} />
-            </button>
+            <MyImage image={CloseIcon} />
         </div>
     )
 }

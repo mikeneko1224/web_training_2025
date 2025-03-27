@@ -1,34 +1,26 @@
 'use client'
 
 import { FC } from 'react'
+import { LastPage } from './LastPage'
 import MyImage from '@/components/MyImage'
 import { ImageModel } from '@/models/image.model'
-import { Image, MultipleImage, Viewer } from '@link-u/ginzan'
+import { GALogo, catLogo } from '@/utils/images'
+import { EmbeddedElement, Image, MultipleImage, Viewer } from '@link-u/ginzan'
 
 type Props = {
     pages: ImageModel[]
+    lastpage: number
 }
 
-const translate_image = ({ pages }: Props) => {
-    let mangaImage!: Image
-    const mangaImages: Image[] = []
-    let image_src
-
-    pages.map((page) => {
-        image_src = page.src
-        mangaImage = { type: 'image', src: image_src }
-        mangaImages.push(mangaImage)
+export const ViewComic: FC<Props> = ({ pages, lastpage }) => {
+    const mangaImage: Image[] = pages.map((page) => {
+        return { type: 'image', src: page.src }
     })
 
-    return mangaImages
-}
+    const lastPage: EmbeddedElement = {
+        type: 'embedded_element',
+        element: <LastPage lastpage={lastpage} />,
+    }
 
-export const ViewComic: FC<Props> = ({ pages }) => {
-    const images = translate_image({ pages })
-
-    return (
-        <div>
-            <Viewer src={images} beginWithBlankPage={true} />
-        </div>
-    )
+    return <Viewer src={[...mangaImage, lastPage]} beginWithBlankPage={false} />
 }

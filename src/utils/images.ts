@@ -189,3 +189,17 @@ export const CloseIcon: ImageModel = {
     width: 32,
     height: 32,
 }
+
+export const GALogo: ImageModel = {
+    src: '/GA_logo.png',
+    alt: 'GA_logo',
+    width: 288,
+    height: 44,
+}
+
+export const catLogo: ImageModel = {
+    src: '/cat_logo.png',
+    alt: 'cat_logo',
+    width: 69,
+    height: 80,
+}

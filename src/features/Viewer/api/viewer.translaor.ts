@@ -9,7 +9,7 @@ export const ViewerTranslator = {
                 proto.pages?.map((page) => ImageTranslator.translate(page)) ??
                 [],
 
-            lastpage: proto.lastpage as number,
+            lastpage: proto.lastpage?.nextChapterId as number,
         }
     },
 }
