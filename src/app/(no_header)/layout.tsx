@@ -1,6 +1,5 @@
 import '../globals.css'
 import { NewDesign } from '@/components/Change_design'
-import Header from '@/features/Viewer/components/header'
 
 export const metadata = {
     title: 'Next.js',

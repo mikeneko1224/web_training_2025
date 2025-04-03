@@ -33,14 +33,14 @@ export const LastPage: FC<Props> = ({ lastpage }) => {
             <div className='flex flex-col gap-[12px]'>
                 <div className='flex flex-col items-center justify-center gap-[8px]'>
                     <button className='px-auto w-[256px] rounded-sm border border-[#D9D9D9] py-[8px]'>
-                        <a href={`/title/${titleId}`}>作品詳細</a>
+                        <Link href={`/title/${titleId}`}>作品詳細</Link>
                     </button>
                     <NextPage lastpage={lastpage} titleId={titleId} />
                     <button className='px-auto w-[256px] rounded-sm border border-[#D9D9D9] bg-[#F9E384] py-[8px]'>
                         感想を書く
                     </button>
                     <button className='px-auto w-[256px] rounded-sm border border-[#D9D9D9] py-[8px]'>
-                        <a href={`/title/${titleId}`}>閉じる</a>
+                        <Link href={`/title/${titleId}`}>閉じる</Link>
                     </button>
                 </div>
                 <div className='flex gap-[4px]'>

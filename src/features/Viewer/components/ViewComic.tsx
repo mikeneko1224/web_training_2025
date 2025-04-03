@@ -39,7 +39,7 @@ type HeaderProp = {
 
 const Header = () => {
     const params = useParams()
-    const url = `http://localhost:3000/title/${params.id}`
+    const url = `/title/${params.id}`
 
     return (
         <div className='fixed top-0 z-10 h-[62px] w-full  bg-[#333] opacity-[0.8]'>
@@ -105,23 +105,34 @@ type Props = {
 
 export const ViewComic: FC<Props> = ({ pages, lastpage }) => {
     const mangaImage: Image[] = pages.map((page) => {
-        return { type: 'image', src: page.src }
+        return {
+            type: 'image',
+            src: page.src,
+            size: { width: page.width, height: page.height },
+            widthRatio: 0.8,
+            spreadAllowance: 'wideScreenOnly',
+        }
     })
 
     const lastPage: EmbeddedElement = {
         type: 'embedded_element',
         element: <LastPage lastpage={lastpage} />,
+        side: 'center',
+        spreadAllowance: 'wideScreenOnly',
     }
 
     return (
         <Viewer
             src={[...mangaImage, lastPage]}
+            index={0}
             controlUI={ControlUI}
-            orientation='vertical'
+            orientation='horizontal'
             controlUIVisible={true}
             breakpoint={{ type: 'ratio', value: 1 }}
             beginWithBlankPage={false}
             rtl={true}
+            centerizeFirstPage={false}
+            centerizeLastPage={true}
         />
     )
 }

@@ -7,7 +7,7 @@ const Viewer = async ({ params }: { params: { chapter_id: number } }) => {
     const { pages, lastpage } = model
 
     return (
-        <div className='flex flex-col gap-2 bg-[#333] pb-9'>
+        <div className='flex flex-col gap-2 bg-red-500 pb-9'>
             <ViewComic pages={pages} lastpage={lastpage} />
         </div>
     )
