@@ -19,6 +19,8 @@ type Props = {
 
 export const LastPage: FC<Props> = ({ lastpage }) => {
     const params = useParams()
+    const titleId = Number(params.id)
+
     const pathname = usePathname()
     const link = `http://localhost:3000${pathname}`
     const url = `http://twitter.com/share?url=${link}&hashtags=漫画`
@@ -31,14 +33,14 @@ export const LastPage: FC<Props> = ({ lastpage }) => {
             <div className='flex flex-col gap-[12px]'>
                 <div className='flex flex-col items-center justify-center gap-[8px]'>
                     <button className='px-auto w-[256px] rounded-sm border border-[#D9D9D9] py-[8px]'>
-                        <a href={`/title/${params.id}`}>作品詳細</a>
+                        <a href={`/title/${titleId}`}>作品詳細</a>
                     </button>
-                    <NextPage lastpage={lastpage} />
+                    <NextPage lastpage={lastpage} titleId={titleId} />
                     <button className='px-auto w-[256px] rounded-sm border border-[#D9D9D9] bg-[#F9E384] py-[8px]'>
                         感想を書く
                     </button>
                     <button className='px-auto w-[256px] rounded-sm border border-[#D9D9D9] py-[8px]'>
-                        <a href={`/title/${params.id}`}>閉じる</a>
+                        <a href={`/title/${titleId}`}>閉じる</a>
                     </button>
                 </div>
                 <div className='flex gap-[4px]'>

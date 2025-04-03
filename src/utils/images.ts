@@ -203,3 +203,10 @@ export const catLogo: ImageModel = {
     width: 69,
     height: 80,
 }
+
+export const TateyomiLogo: ImageModel = {
+    src: '/Tateyomi.png',
+    alt: 'Tateyomi_logo',
+    width: 32,
+    height: 32,
+}
