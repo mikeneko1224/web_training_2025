@@ -13,15 +13,14 @@ type Props = {
 export const HeaderItemRow: FC<Props> = ({ image, title }) => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)
     return title === 'ログイン' ? (
-        <div className='flex w-[76px] flex-col items-center gap-1.5'>
-            <button onClick={() => setIsOpenModal(true)}>
-                <MyImage image={image} />
-                <p className='text-center text-[13px] text-[#6B6B6B]'>
-                    {title}
-                </p>
-            </button>
+        <button
+            onClick={() => setIsOpenModal(true)}
+            className='flex w-[76px] flex-col items-center gap-1.5'
+        >
+            <MyImage image={image} />
+            <p className='text-center text-[13px] text-[#6B6B6B]'>{title}</p>
             <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
-        </div>
+        </button>
     ) : (
         <div className='flex w-[76px] flex-col items-center gap-1.5'>
             <MyImage image={image} />
