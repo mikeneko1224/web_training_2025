@@ -43,37 +43,39 @@ export default function Modal({
     return (
         <>
             {isOpenModal && (
-                <div className='fixed left-0 top-0 z-10 h-full w-full bg-black/50'>
+                <div className='fixed left-0 top-0 z-10 h-full w-full bg-black/50 '>
                     <div
-                        className='relative left-1/2 top-1/2 z-20 max-h-[95vh] w-1/2 -translate-x-1/2 -translate-y-1/2  overflow-auto rounded-xl  bg-white p-4 shadow-lg md:max-h-[90vh] md:w-1/2 md:p-10 md:pb-20'
+                        className='relative top-1/4 z-20 mx-auto w-[540px] rounded-[4px]  bg-white px-[32px] pb-[48px] pt-[32px]'
                         ref={modalRef}
                     >
                         {/* ここにモーダルの中身 */}
-                        <div className='flex  flex-col items-center justify-center gap-7'>
-                            <div>ログイン</div>
+                        <div className='flex  flex-col items-center justify-center gap-8 '>
+                            <div className='text-[20px] font-[700]'>
+                                ログイン
+                            </div>
                             <fieldset className='flex w-full flex-col items-center justify-center gap-4'>
                                 <input
                                     type='text'
                                     placeholder='メールアドレス'
-                                    className='w-4/5 border-b-2 border-gray-300'
+                                    className='w-[100%] border-b-2 border-gray-300'
                                 />
                                 <input
                                     type='password'
                                     placeholder='パスワード'
-                                    className='w-4/5 border-b-2 border-gray-300'
+                                    className='w-[100%] border-b-2 border-gray-300'
                                 />
                                 <button
                                     type='button'
-                                    className='w-4/5 rounded-md bg-yellow-300 py-2'
+                                    className='w-[100%] rounded-md bg-yellow-300 py-2'
                                 >
                                     ログイン
                                 </button>
                             </fieldset>
-                            <fieldset className='flex w-full flex-col items-center justify-center gap-3'>
+                            <fieldset className='flex w-full flex-col items-center justify-center gap-2'>
                                 <div>アカウントをお持ちでない方</div>
                                 <button
                                     type='button'
-                                    className='w-4/5 rounded-md border border-gray-300 py-2'
+                                    className='w-[100%] rounded-md border border-gray-300 py-2 text-[16px] font-[600]'
                                 >
                                     新規登録
                                 </button>
