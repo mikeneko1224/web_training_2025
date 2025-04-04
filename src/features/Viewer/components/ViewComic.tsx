@@ -53,8 +53,6 @@ const Header: React.FC<HeaderProp> = (props) => {
 }
 
 const Footer: React.FC<ControlUIProp> = (props) => {
-    console.log('visible:', props.visible)
-    console.log('viewerOrientation:', props.viewerOrientation)
     return (
         <div
             className={clsx(
