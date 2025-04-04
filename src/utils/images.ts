@@ -182,3 +182,31 @@ export const DenshiIcon: ImageModel = {
     width: 102,
     height: 41,
 }
+
+export const CloseIcon: ImageModel = {
+    src: '/CloseIcon.png',
+    alt: 'close',
+    width: 32,
+    height: 32,
+}
+
+export const GALogo: ImageModel = {
+    src: '/GA_logo.png',
+    alt: 'GA_logo',
+    width: 288,
+    height: 44,
+}
+
+export const catLogo: ImageModel = {
+    src: '/cat_logo.png',
+    alt: 'cat_logo',
+    width: 69,
+    height: 80,
+}
+
+export const TateyomiLogo: ImageModel = {
+    src: '/Tateyomi.png',
+    alt: 'Tateyomi_logo',
+    width: 32,
+    height: 32,
+}
