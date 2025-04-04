@@ -1,16 +1,12 @@
 import React, { useEffect, useRef } from 'react'
-import NewRegistrationModal from './NewRegistrationModal'
 
-export default function Modal({
-    isOpenModal,
-    setIsOpenModal,
+export default function NewRegistrationModal({
+    isOpenModal2,
+    setIsOpenModal2,
 }: {
-    isOpenModal: boolean
-    setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>
+    isOpenModal2: boolean
+    setIsOpenModal2: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-    // ---------------------------------------------
-    // モーダル外をクリックした時の処理
-    // ---------------------------------------------
     const modalRef = useRef(null)
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -20,46 +16,26 @@ export default function Modal({
                     event.target as Node
                 )
             ) {
-                setIsOpenModal(false)
+                setIsOpenModal2(false)
             }
         }
         document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [modalRef, setIsOpenModal])
+    }, [modalRef, setIsOpenModal2])
 
-    // ---------------------------------------------
-    // モーダル表示中: 背面のスクロールを禁止
-    // ---------------------------------------------
     useEffect(() => {
-        if (isOpenModal) {
+        if (isOpenModal2) {
             document.body.classList.add('overflow-hidden')
         } else {
             document.body.classList.remove('overflow-hidden')
         }
-    }, [isOpenModal])
-
-    const [isOpenModal2, setIsOpenModal2] = React.useState(false)
-
-    // ---------------------------------------------
-    // 新規登録のボタン処理
-    // ---------------------------------------------
-    const changeModal = () => {
-        setIsOpenModal2(true)
-        setIsOpenModal(false)
-
-        return (
-            <NewRegistrationModal
-                isOpenModal2={isOpenModal2}
-                setIsOpenModal2={setIsOpenModal2}
-            />
-        )
-    }
+    }, [isOpenModal2])
 
     return (
         <>
-            {isOpenModal && (
+            {isOpenModal2 && (
                 <div className='fixed left-0 top-0 z-10 h-full w-full bg-black/50 '>
                     <div
                         className='relative top-1/4 z-20 mx-auto w-[540px] rounded-[4px]  bg-white px-[32px] pb-[48px] pt-[32px]'
@@ -85,17 +61,16 @@ export default function Modal({
                                     type='button'
                                     className='w-[100%] rounded-md bg-yellow-300 py-2'
                                 >
-                                    ログイン
+                                    新規登録
                                 </button>
                             </fieldset>
                             <fieldset className='flex w-full flex-col items-center justify-center gap-2'>
-                                <div>アカウントをお持ちでない方</div>
+                                <div>すでに登録済みの方</div>
                                 <button
                                     type='button'
                                     className='w-[100%] rounded-md border border-gray-300 py-2 text-[16px] font-[600]'
-                                    onClick={changeModal}
                                 >
-                                    新規登録
+                                    ログイン
                                 </button>
                             </fieldset>
                         </div>
