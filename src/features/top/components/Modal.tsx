@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef } from 'react'
 import NewRegistrationModal from './NewRegistrationModal'
 
@@ -8,9 +10,7 @@ export default function Modal({
     isOpenModal: boolean
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-    // ---------------------------------------------
     // モーダル外をクリックした時の処理
-    // ---------------------------------------------
     const modalRef = useRef(null)
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -29,9 +29,7 @@ export default function Modal({
         }
     }, [modalRef, setIsOpenModal])
 
-    // ---------------------------------------------
     // モーダル表示中: 背面のスクロールを禁止
-    // ---------------------------------------------
     useEffect(() => {
         if (isOpenModal) {
             document.body.classList.add('overflow-hidden')
@@ -42,18 +40,18 @@ export default function Modal({
 
     const [isOpenModal2, setIsOpenModal2] = React.useState(false)
 
-    // ---------------------------------------------
     // 新規登録のボタン処理
-    // ---------------------------------------------
     const changeModal = () => {
         setIsOpenModal2(true)
         setIsOpenModal(false)
 
-        return (
+        setIsOpenModal2 ? (
             <NewRegistrationModal
                 isOpenModal2={isOpenModal2}
                 setIsOpenModal2={setIsOpenModal2}
             />
+        ) : (
+            <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
         )
     }
 
