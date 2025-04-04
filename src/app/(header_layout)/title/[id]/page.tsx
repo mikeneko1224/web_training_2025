@@ -9,12 +9,13 @@ import { CommicSummary } from '@/features/title/components/CommicSummary'
 const TitleDetail = async ({ params }: { params: { id: number } }) => {
     const model = await getTitleDetail(params.id)
     const { title, chapters, advertisement } = model
+    const titleid = params.id
 
     return (
         <div>
             <CommicSummary title={title} />
             <Divider />
-            <Chapter chapters={chapters} />
+            <Chapter chapters={chapters} titleid={titleid} />
             <Divider />
             <Information advertisement={advertisement} />
             <Divider />
