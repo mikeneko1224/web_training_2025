@@ -1,6 +1,9 @@
+'use client'
+
 import React, { FC } from 'react'
 import { HeaderItemRow } from './HeaderItemRow'
 import MyImage from '@/components/MyImage'
+import Modal from '@/features/top/components/Modal'
 import { ImageModel } from '@/models/image.model'
 import {
     BookClosedFillIcon,
@@ -28,18 +31,29 @@ const items: { image: ImageModel; title: string }[] = [
 ]
 
 export const Header: FC = () => {
+    const [isOpenModal, setIsOpenModal] = React.useState(false)
+    const openModal = () => setIsOpenModal(true)
+
     return (
-        <div className='mx-auto flex max-w-6xl items-center justify-between gap-[50px] py-4'>
-            <MyImage image={LogoImage} />
-            <div className='flex items-baseline gap-4 whitespace-pre-wrap'>
-                {items.map((item, index) => (
-                    <HeaderItemRow
-                        key={index}
-                        image={item.image}
-                        title={item.title}
-                    />
-                ))}
+        <>
+            <div className='mx-auto flex max-w-6xl items-center justify-between gap-[50px] py-4'>
+                <MyImage image={LogoImage} />
+                <div className='flex items-baseline gap-4 whitespace-pre-wrap'>
+                    {items.map((item, index) => (
+                        <HeaderItemRow
+                            key={index}
+                            image={item.image}
+                            title={item.title}
+                            openModal={
+                                item.title === 'ログイン'
+                                    ? openModal
+                                    : undefined
+                            }
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
+            <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+        </>
     )
 }
