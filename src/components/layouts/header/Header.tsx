@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import { HeaderItemRow } from './HeaderItemRow'
 import MyImage from '@/components/MyImage'
 import Modal from '@/features/top/components/Modal'
+import NewRegistrationModal from '@/features/top/components/NewRegistrationModal'
 import { ImageModel } from '@/models/image.model'
 import {
     BookClosedFillIcon,
@@ -32,7 +33,17 @@ const items: { image: ImageModel; title: string }[] = [
 
 export const Header: FC = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)
-    const openModal = () => setIsOpenModal(true)
+    const [isOpenRegisterModal, setIsOpenRegisterModal] = React.useState(false)
+
+    const openLoginModal = () => {
+        setIsOpenRegisterModal(false)
+        setIsOpenModal(true)
+    }
+
+    const openRegisterModal = () => {
+        setIsOpenModal(false)
+        setIsOpenRegisterModal(true)
+    }
 
     return (
         <>
@@ -46,14 +57,27 @@ export const Header: FC = () => {
                             title={item.title}
                             openModal={
                                 item.title === 'ログイン'
-                                    ? openModal
+                                    ? openLoginModal
                                     : undefined
                             }
                         />
                     ))}
                 </div>
             </div>
-            <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+            {isOpenModal && (
+                <Modal
+                    isOpenModal={isOpenModal}
+                    setIsOpenModal={setIsOpenModal}
+                    openRegisterModal={openRegisterModal}
+                />
+            )}
+            {isOpenRegisterModal && (
+                <NewRegistrationModal
+                    isOpenRegisterModal={isOpenRegisterModal}
+                    setIsOpenRegisterModal={setIsOpenRegisterModal}
+                    openLoginModal={openLoginModal}
+                />
+            )}
         </>
     )
 }

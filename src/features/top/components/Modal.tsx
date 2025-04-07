@@ -1,14 +1,15 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import NewRegistrationModal from './NewRegistrationModal'
 
 export default function Modal({
     isOpenModal,
     setIsOpenModal,
+    openRegisterModal,
 }: {
     isOpenModal: boolean
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>
+    openRegisterModal?: () => void
 }) {
     // モーダル外をクリックした時の処理
     const modalRef = useRef(null)
@@ -37,23 +38,6 @@ export default function Modal({
             document.body.classList.remove('overflow-hidden')
         }
     }, [isOpenModal])
-
-    const [isOpenModal2, setIsOpenModal2] = React.useState(false)
-
-    // 新規登録のボタン処理
-    const changeModal = () => {
-        setIsOpenModal2(true)
-        setIsOpenModal(false)
-
-        setIsOpenModal2 ? (
-            <NewRegistrationModal
-                isOpenModal2={isOpenModal2}
-                setIsOpenModal2={setIsOpenModal2}
-            />
-        ) : (
-            <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
-        )
-    }
 
     return (
         <>
@@ -91,7 +75,7 @@ export default function Modal({
                                 <button
                                     type='button'
                                     className='w-[100%] rounded-md border border-gray-300 py-2 text-[16px] font-[600]'
-                                    onClick={changeModal}
+                                    onClick={openRegisterModal}
                                 >
                                     新規登録
                                 </button>

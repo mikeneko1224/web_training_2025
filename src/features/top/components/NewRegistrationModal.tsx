@@ -1,12 +1,16 @@
 import React, { useEffect, useRef } from 'react'
 
+type NewRegisterProps = {
+    isOpenRegisterModal: boolean
+    setIsOpenRegisterModal: React.Dispatch<React.SetStateAction<boolean>>
+    openLoginModal: () => void
+}
+
 export default function NewRegistrationModal({
-    isOpenModal2,
-    setIsOpenModal2,
-}: {
-    isOpenModal2: boolean
-    setIsOpenModal2: React.Dispatch<React.SetStateAction<boolean>>
-}) {
+    isOpenRegisterModal,
+    setIsOpenRegisterModal,
+    openLoginModal,
+}: NewRegisterProps) {
     const modalRef = useRef(null)
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -16,26 +20,26 @@ export default function NewRegistrationModal({
                     event.target as Node
                 )
             ) {
-                setIsOpenModal2(false)
+                setIsOpenRegisterModal(false)
             }
         }
         document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [modalRef, setIsOpenModal2])
+    }, [modalRef, setIsOpenRegisterModal])
 
     useEffect(() => {
-        if (isOpenModal2) {
+        if (isOpenRegisterModal) {
             document.body.classList.add('overflow-hidden')
         } else {
             document.body.classList.remove('overflow-hidden')
         }
-    }, [isOpenModal2])
+    }, [isOpenRegisterModal])
 
     return (
         <>
-            {isOpenModal2 && (
+            {isOpenRegisterModal && (
                 <div className='fixed left-0 top-0 z-10 h-full w-full bg-black/50 '>
                     <div
                         className='relative top-1/4 z-20 mx-auto w-[540px] rounded-[4px]  bg-white px-[32px] pb-[48px] pt-[32px]'
@@ -44,7 +48,7 @@ export default function NewRegistrationModal({
                         {/* ここにモーダルの中身 */}
                         <div className='flex  flex-col items-center justify-center gap-8 '>
                             <div className='text-[20px] font-[700]'>
-                                ログイン
+                                新規登録
                             </div>
                             <fieldset className='flex w-full flex-col items-center justify-center gap-4'>
                                 <input
@@ -69,6 +73,7 @@ export default function NewRegistrationModal({
                                 <button
                                     type='button'
                                     className='w-[100%] rounded-md border border-gray-300 py-2 text-[16px] font-[600]'
+                                    onClick={openLoginModal}
                                 >
                                     ログイン
                                 </button>
