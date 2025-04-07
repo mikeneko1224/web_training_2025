@@ -3,13 +3,15 @@
 import React, { useEffect, useRef } from 'react'
 
 export default function Modal({
-    isOpenModal,
     setIsOpenModal,
-    openRegisterModal,
+    isOpenModal,
+    authModal,
+    authMode,
 }: {
     isOpenModal: boolean
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>
-    openRegisterModal?: () => void
+    authModal?: () => void
+    authMode: string
 }) {
     // モーダル外をクリックした時の処理
     const modalRef = useRef(null)
@@ -50,16 +52,18 @@ export default function Modal({
                         {/* ここにモーダルの中身 */}
                         <div className='flex  flex-col items-center justify-center gap-8 '>
                             <div className='text-[20px] font-[700]'>
-                                ログイン
+                                {authMode === 'login' ? 'ログイン' : '新規登録'}
                             </div>
                             <fieldset className='flex w-full flex-col items-center justify-center gap-4'>
                                 <input
                                     type='text'
+                                    id='email'
                                     placeholder='メールアドレス'
                                     className='w-[100%] border-b-2 border-gray-300'
                                 />
                                 <input
                                     type='password'
+                                    id='password'
                                     placeholder='パスワード'
                                     className='w-[100%] border-b-2 border-gray-300'
                                 />
@@ -71,13 +75,19 @@ export default function Modal({
                                 </button>
                             </fieldset>
                             <fieldset className='flex w-full flex-col items-center justify-center gap-2'>
-                                <div>アカウントをお持ちでない方</div>
+                                <div>
+                                    {authMode === 'login'
+                                        ? 'アカウントをお持ちでない方'
+                                        : 'すでに登録済みの方'}
+                                </div>
                                 <button
                                     type='button'
                                     className='w-[100%] rounded-md border border-gray-300 py-2 text-[16px] font-[600]'
-                                    onClick={openRegisterModal}
+                                    onClick={authModal}
                                 >
-                                    新規登録
+                                    {authMode === 'login'
+                                        ? '新規登録'
+                                        : 'ログイン'}
                                 </button>
                             </fieldset>
                         </div>

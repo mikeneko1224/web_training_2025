@@ -1,10 +1,9 @@
 'use client'
 
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { HeaderItemRow } from './HeaderItemRow'
 import MyImage from '@/components/MyImage'
 import Modal from '@/features/top/components/Modal'
-import NewRegistrationModal from '@/features/top/components/NewRegistrationModal'
 import { ImageModel } from '@/models/image.model'
 import {
     BookClosedFillIcon,
@@ -33,16 +32,14 @@ const items: { image: ImageModel; title: string }[] = [
 
 export const Header: FC = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)
-    const [isOpenRegisterModal, setIsOpenRegisterModal] = React.useState(false)
+    const [authMode, setAuthMode] = useState('login')
 
-    const openLoginModal = () => {
-        setIsOpenRegisterModal(false)
-        setIsOpenModal(true)
+    const switchAuthMode = () => {
+        setAuthMode(authMode === 'login' ? 'register' : 'login')
     }
 
-    const openRegisterModal = () => {
-        setIsOpenModal(false)
-        setIsOpenRegisterModal(true)
+    const OpenModal = () => {
+        setIsOpenModal(true)
     }
 
     return (
@@ -57,27 +54,20 @@ export const Header: FC = () => {
                             title={item.title}
                             openModal={
                                 item.title === 'ログイン'
-                                    ? openLoginModal
+                                    ? OpenModal
                                     : undefined
                             }
                         />
                     ))}
                 </div>
             </div>
-            {isOpenModal && (
-                <Modal
-                    isOpenModal={isOpenModal}
-                    setIsOpenModal={setIsOpenModal}
-                    openRegisterModal={openRegisterModal}
-                />
-            )}
-            {isOpenRegisterModal && (
-                <NewRegistrationModal
-                    isOpenRegisterModal={isOpenRegisterModal}
-                    setIsOpenRegisterModal={setIsOpenRegisterModal}
-                    openLoginModal={openLoginModal}
-                />
-            )}
+
+            <Modal
+                isOpenModal={isOpenModal}
+                setIsOpenModal={setIsOpenModal}
+                authModal={switchAuthMode}
+                authMode={authMode}
+            />
         </>
     )
 }

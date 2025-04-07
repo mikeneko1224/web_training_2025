@@ -2,6 +2,7 @@ import '../globals.css'
 import MyImage from '@/components/MyImage'
 import { Footer } from '@/components/layouts/footer/Footer'
 import { Header } from '@/components/layouts/header/Header'
+import { Login } from '@/features/top/api/login'
 import { logo_b } from '@/utils/images'
 
 export const metadata = {
@@ -9,7 +10,7 @@ export const metadata = {
     description: 'まんがWeb',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: {
     children: React.ReactNode
