@@ -8,7 +8,7 @@ const endpoint: (email: string, password: string) => Endpoint<undefined> = (
 ) => ({
     path: 'login',
     method: 'post',
-    revalidate: 60,
+    revalidate: 0,
     parameters: { email: email, password: password },
     decode: () => undefined,
 })

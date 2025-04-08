@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { Registration } from '../api/registration'
 import { RegisterButtonAction } from './RegisterButton'
 
 export default function Modal({
@@ -17,12 +18,20 @@ export default function Modal({
     // メールアドレスとパスワードの初期設定
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // console.log(email, password)
 
     // 新規登録機能
-    const actionButton = () => {
-        authMode === 'register' &&
-            RegisterButtonAction(email, password, setIsOpenModal)
+    const actionButton = async () => {
+        try {
+            if (authMode === 'register') {
+                await Registration(email, password)
+                alert('アカウント作成に成功しました')
+                setIsOpenModal(false)
+            }
+        } catch (error) {
+            if (authMode === 'register') {
+                alert(error)
+            }
+        }
     }
 
     // モーダル外をクリックした時の処理
@@ -68,9 +77,7 @@ export default function Modal({
                             </div>
                             <form
                                 className='flex w-full flex-col items-center justify-center gap-4'
-                                onSubmit={(e) => {
-                                    e.preventDefault()
-                                }}
+                                onSubmit={actionButton}
                             >
                                 <input
                                     type='text'
@@ -89,9 +96,8 @@ export default function Modal({
                                     }
                                 />
                                 <button
-                                    type='button'
+                                    type='submit'
                                     className='w-[100%] rounded-md bg-yellow-300 py-2'
-                                    onClick={actionButton}
                                 >
                                     {authMode === 'login'
                                         ? 'ログイン'
