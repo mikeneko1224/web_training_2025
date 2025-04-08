@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from 'next/server'
 import { apiClient } from '@/api/api-client'
 import { Endpoint } from '@/api/endpoint'
 
@@ -6,14 +5,14 @@ const endpoint: (email: string, password: string) => Endpoint<undefined> = (
     email: string,
     password: string
 ) => ({
-    path: 'login',
+    path: 'user',
     method: 'post',
     revalidate: 60,
     parameters: { email: email, password: password },
     decode: () => undefined,
 })
 
-export const Login: (
+export const Registration: (
     email: string,
     password: string
 ) => Promise<undefined> = async (email: string, password: string) => {

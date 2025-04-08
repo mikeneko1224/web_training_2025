@@ -3,7 +3,9 @@
 import React, { FC, useState } from 'react'
 import { HeaderItemRow } from './HeaderItemRow'
 import MyImage from '@/components/MyImage'
+import { Registration } from '@/features/top/api/registration'
 import Modal from '@/features/top/components/Modal'
+import { RegisterButtonAction } from '@/features/top/components/RegisterButton'
 import { ImageModel } from '@/models/image.model'
 import {
     BookClosedFillIcon,
@@ -65,7 +67,7 @@ export const Header: FC = () => {
             <Modal
                 isOpenModal={isOpenModal}
                 setIsOpenModal={setIsOpenModal}
-                authModal={switchAuthMode}
+                switchAuthMode={switchAuthMode}
                 authMode={authMode}
             />
         </>

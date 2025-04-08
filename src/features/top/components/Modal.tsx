@@ -1,18 +1,29 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { RegisterButtonAction } from './RegisterButton'
 
 export default function Modal({
     setIsOpenModal,
     isOpenModal,
-    authModal,
+    switchAuthMode,
     authMode,
 }: {
     isOpenModal: boolean
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>
-    authModal?: () => void
+    switchAuthMode?: () => void
     authMode: string
 }) {
+    // メールアドレスとパスワードの初期設定
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    // console.log(email, password)
+
+    // 新規登録機能
+    const actionButton = () => {
+        authMode === 'register' && RegisterButtonAction(email, password)
+    }
+
     // モーダル外をクリックした時の処理
     const modalRef = useRef(null)
     useEffect(() => {
@@ -54,26 +65,38 @@ export default function Modal({
                             <div className='text-[20px] font-[700]'>
                                 {authMode === 'login' ? 'ログイン' : '新規登録'}
                             </div>
-                            <fieldset className='flex w-full flex-col items-center justify-center gap-4'>
+                            <form
+                                className='flex w-full flex-col items-center justify-center gap-4'
+                                onSubmit={(e) => {
+                                    e.preventDefault()
+                                }}
+                            >
                                 <input
                                     type='text'
-                                    id='email'
+                                    value={email}
                                     placeholder='メールアドレス'
                                     className='w-[100%] border-b-2 border-gray-300'
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                                 <input
                                     type='password'
-                                    id='password'
+                                    value={password}
                                     placeholder='パスワード'
                                     className='w-[100%] border-b-2 border-gray-300'
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
                                 />
                                 <button
                                     type='button'
                                     className='w-[100%] rounded-md bg-yellow-300 py-2'
+                                    onClick={actionButton}
                                 >
-                                    ログイン
+                                    {authMode === 'login'
+                                        ? 'ログイン'
+                                        : '新規登録'}
                                 </button>
-                            </fieldset>
+                            </form>
                             <fieldset className='flex w-full flex-col items-center justify-center gap-2'>
                                 <div>
                                     {authMode === 'login'
@@ -83,7 +106,7 @@ export default function Modal({
                                 <button
                                     type='button'
                                     className='w-[100%] rounded-md border border-gray-300 py-2 text-[16px] font-[600]'
-                                    onClick={authModal}
+                                    onClick={switchAuthMode}
                                 >
                                     {authMode === 'login'
                                         ? '新規登録'
