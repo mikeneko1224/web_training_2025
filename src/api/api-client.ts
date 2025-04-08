@@ -39,7 +39,6 @@ export const apiClient = async <Response>(
 
     errorMap[String(response.status)]?.()
 
-    console.log(response)
     if (!response.ok) {
         throw new NetworkError()
     }
