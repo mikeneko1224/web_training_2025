@@ -21,7 +21,8 @@ export default function Modal({
 
     // 新規登録機能
     const actionButton = () => {
-        authMode === 'register' && RegisterButtonAction(email, password)
+        authMode === 'register' &&
+            RegisterButtonAction(email, password, setIsOpenModal)
     }
 
     // モーダル外をクリックした時の処理
