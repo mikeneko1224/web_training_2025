@@ -210,3 +210,10 @@ export const TateyomiLogo: ImageModel = {
     width: 32,
     height: 32,
 }
+
+export const Logout: ImageModel = {
+    src: '/logout.png',
+    alt: 'logout_logo',
+    width: 20,
+    height: 20,
+}

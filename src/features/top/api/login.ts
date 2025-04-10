@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from 'next/server'
 import { apiClient } from '@/api/api-client'
 import { Endpoint } from '@/api/endpoint'
 
@@ -15,10 +14,7 @@ const endpoint: (email: string, password: string) => Endpoint<undefined> = (
 
 export const Login: (
     email: string,
-    password: string,
-) => Promise<undefined> = async (
-    email: string,
-    password: string,
-) => {
+    password: string
+) => Promise<undefined> = async (email: string, password: string) => {
     return await apiClient(endpoint(email, password), true)
 }

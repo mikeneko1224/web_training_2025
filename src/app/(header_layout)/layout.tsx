@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { cookies } from 'next/dist/client/components/headers'
 import '../globals.css'
 import MyImage from '@/components/MyImage'
 import { Footer } from '@/components/layouts/footer/Footer'

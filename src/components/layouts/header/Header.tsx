@@ -3,9 +3,7 @@
 import React, { FC, useState } from 'react'
 import { HeaderItemRow } from './HeaderItemRow'
 import MyImage from '@/components/MyImage'
-import { Registration } from '@/features/top/api/registration'
 import Modal from '@/features/top/components/Modal'
-import { RegisterButtonAction } from '@/features/top/components/RegisterButton'
 import { ImageModel } from '@/models/image.model'
 import {
     BookClosedFillIcon,
@@ -35,6 +33,7 @@ const items: { image: ImageModel; title: string }[] = [
 export const Header: FC = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)
     const [authMode, setAuthMode] = useState('login')
+    const [isLoggedIn, setLoggedIn] = useState(false)
 
     const switchAuthMode = () => {
         setAuthMode(authMode === 'login' ? 'register' : 'login')
@@ -55,10 +54,12 @@ export const Header: FC = () => {
                             image={item.image}
                             title={item.title}
                             openModal={
-                                item.title === 'ログイン'
+                                item.title === 'ログイン' && !isLoggedIn
                                     ? OpenModal
                                     : undefined
                             }
+                            LoggedIn={isLoggedIn}
+                            setLoggedIn={setLoggedIn}
                         />
                     ))}
                 </div>
@@ -69,6 +70,8 @@ export const Header: FC = () => {
                 setIsOpenModal={setIsOpenModal}
                 switchAuthMode={switchAuthMode}
                 authMode={authMode}
+                LoggedIn={isLoggedIn}
+                setLoggedIn={setLoggedIn}
             />
         </>
     )

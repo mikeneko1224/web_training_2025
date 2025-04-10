@@ -1,20 +1,22 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { Login } from '../api/login'
 import { Registration } from '../api/registration'
-import { RegisterButtonAction } from './RegisterButton'
 
 export default function Modal({
     setIsOpenModal,
     isOpenModal,
     switchAuthMode,
     authMode,
+    LoggedIn,
+    setLoggedIn,
 }: {
     isOpenModal: boolean
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>
     switchAuthMode?: () => void
     authMode: string
+    LoggedIn: boolean
+    setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
 }) {
     // メールアドレスとパスワードの初期設定
     const [email, setEmail] = useState('')
@@ -32,8 +34,9 @@ export default function Modal({
                 await fetch(`/api/login?email=${email}&password=${password}`, {
                     method: 'post',
                 })
-                // await Login(email, password)
                 alert('ログインしました')
+                setLoggedIn(true)
+                setIsOpenModal(false)
             }
         } catch (error) {
             if (authMode === 'register') {
