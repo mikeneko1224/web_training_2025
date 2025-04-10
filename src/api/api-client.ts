@@ -2,16 +2,20 @@ import { Maintenance, NetworkError, NotFound, ServerError } from './api-error'
 import { Endpoint } from './endpoint'
 
 export const apiClient = async <Response>(
-    endpoint: Endpoint<Response>
+    endpoint: Endpoint<Response>,
+    isClient?: boolean //デフォルト値に設定
 ): Promise<Response> => {
-    const domain = process.env.NEXT_PUBLIC_API_DOMAIN
+    const domain = isClient ? '/' : process.env.NEXT_PUBLIC_API_DOMAIN
     const parameters = Object.entries(endpoint.parameters || {})
         .map((entry) => (entry[1] ? `${entry[0]}=${entry[1]}` : undefined))
         .filter((i) => i)
         .join('&')
-    const url = `${domain}api/v1/${endpoint.path}${
-        parameters ? `?${parameters}` : ''
-    }`
+
+    const url = isClient
+        ? `${domain}api/${endpoint.path}${parameters ? `?${parameters}` : ''}`
+        : `${domain}api/v1/${endpoint.path}${
+              parameters ? `?${parameters}` : ''
+          }`
 
     const response = await fetch(url, {
         method: endpoint.method,

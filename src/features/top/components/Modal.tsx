@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { Login } from '../api/login'
 import { Registration } from '../api/registration'
 import { RegisterButtonAction } from './RegisterButton'
 
@@ -20,12 +21,19 @@ export default function Modal({
     const [password, setPassword] = useState('')
 
     // 新規登録機能
-    const actionButton = async () => {
+    const actionButton = async (e: React.FormEvent) => {
+        e.preventDefault()
         try {
             if (authMode === 'register') {
                 await Registration(email, password)
                 alert('アカウント作成に成功しました')
                 setIsOpenModal(false)
+            } else {
+                await fetch(`/api/login?email=${email}&password=${password}`, {
+                    method: 'post',
+                })
+                // await Login(email, password)
+                alert('ログインしました')
             }
         } catch (error) {
             if (authMode === 'register') {

@@ -15,7 +15,10 @@ const endpoint: (email: string, password: string) => Endpoint<undefined> = (
 
 export const Login: (
     email: string,
-    password: string
-) => Promise<undefined> = async (email: string, password: string) => {
-    return await apiClient(endpoint(email, password))
+    password: string,
+) => Promise<undefined> = async (
+    email: string,
+    password: string,
+) => {
+    return await apiClient(endpoint(email, password), true)
 }

@@ -16,5 +16,5 @@ export const Registration: (
     email: string,
     password: string
 ) => Promise<undefined> = async (email: string, password: string) => {
-    return await apiClient(endpoint(email, password))
+    return await apiClient(endpoint(email, password), false)
 }
