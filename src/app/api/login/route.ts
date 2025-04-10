@@ -1,7 +1,5 @@
 import { NextRequest } from 'next/server'
 
-//cookieの設定
-
 export async function POST(req: NextRequest) {
     // emailとpasswordをURLからとる
     const email = req.nextUrl.searchParams.get('email')
