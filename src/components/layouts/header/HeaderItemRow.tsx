@@ -19,6 +19,7 @@ export const HeaderItemRow: FC<Props> = ({
     LoggedIn,
     setLoggedIn,
 }) => {
+    //ログアウトボタンアクション
     const LogoutAction = async () => {
         try {
             await fetch(`/api/logout`, {
