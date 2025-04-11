@@ -1,4 +1,3 @@
-import { NextApiRequest } from 'next'
 import { TitleDetailModel } from '../models/titleDetail.model'
 import { TitleDetailTranslator } from './titleDetail.translator'
 import { apiClient } from '@/api/api-client'
