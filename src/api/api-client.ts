@@ -1,9 +1,10 @@
-import { Maintenance, NetworkError, NotFound, ServerError } from './api-error'
+import { notFound } from 'next/navigation'
+import { Maintenance, NetworkError, ServerError } from './api-error'
 import { Endpoint } from './endpoint'
 
 export const apiClient = async <Response>(
     endpoint: Endpoint<Response>,
-    isClient?: boolean //デフォルト値に設定
+    isClient = false //デフォルト値に設定
 ): Promise<Response> => {
     const domain = isClient ? '/' : process.env.NEXT_PUBLIC_API_DOMAIN
     const parameters = Object.entries(endpoint.parameters || {})
@@ -31,7 +32,7 @@ export const apiClient = async <Response>(
 
     const errorMap: ErrorMap = {
         '404': () => {
-            throw new NotFound()
+            notFound()
         },
         '500': () => {
             throw new ServerError()

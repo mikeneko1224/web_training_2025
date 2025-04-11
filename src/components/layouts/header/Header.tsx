@@ -3,6 +3,7 @@
 import React, { FC, useState } from 'react'
 import { HeaderItemRow } from './HeaderItemRow'
 import MyImage from '@/components/MyImage'
+import { LogoutAPI } from '@/features/top/api/logout'
 import Modal from '@/features/top/components/Modal'
 import { ImageModel } from '@/models/image.model'
 import {
@@ -14,9 +15,11 @@ import {
     GanganGa,
     GanganPixiv,
     LogoImage,
+    Logout,
     MagnifyingGlassIcon,
     login,
 } from '@/utils/images'
+import useIsLog from '@/utils/isLogin'
 
 const items: { image: ImageModel; title: string }[] = [
     { image: login, title: 'ログイン' },
@@ -33,7 +36,7 @@ const items: { image: ImageModel; title: string }[] = [
 export const Header: FC = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false)
     const [authMode, setAuthMode] = useState('login')
-    const [isLoggedIn, setLoggedIn] = useState(false)
+    const [isLoggedIn, setLoggedIn] = useIsLog()
 
     const switchAuthMode = () => {
         setAuthMode(authMode === 'login' ? 'register' : 'login')
@@ -43,6 +46,21 @@ export const Header: FC = () => {
         setIsOpenModal(true)
     }
 
+    //ログアウトボタンアクション
+    const LogoutAction = async () => {
+        try {
+            await LogoutAPI()
+            alert('ログアウトしました')
+            setLoggedIn(false)
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+    console.log(isLoggedIn)
+
+    const logputImage = Logout
+
     return (
         <>
             <div className='mx-auto flex max-w-6xl items-center justify-between gap-[50px] py-4'>
@@ -51,15 +69,15 @@ export const Header: FC = () => {
                     {items.map((item, index) => (
                         <HeaderItemRow
                             key={index}
-                            image={item.image}
-                            title={item.title}
+                            image={isLoggedIn ? logputImage : item.image}
+                            title={isLoggedIn ? 'ログアウト' : item.title}
                             openModal={
-                                item.title === 'ログイン' && !isLoggedIn
-                                    ? OpenModal
+                                item.title === 'ログイン'
+                                    ? !isLoggedIn
+                                        ? OpenModal
+                                        : LogoutAction
                                     : undefined
                             }
-                            LoggedIn={isLoggedIn}
-                            setLoggedIn={setLoggedIn}
                         />
                     ))}
                 </div>
@@ -70,7 +88,6 @@ export const Header: FC = () => {
                 setIsOpenModal={setIsOpenModal}
                 switchAuthMode={switchAuthMode}
                 authMode={authMode}
-                LoggedIn={isLoggedIn}
                 setLoggedIn={setLoggedIn}
             />
         </>

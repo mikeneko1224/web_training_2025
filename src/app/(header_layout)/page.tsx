@@ -1,5 +1,4 @@
 import React from 'react'
-import { cookies } from 'next/dist/client/components/headers'
 import { Divider } from '@/components/Divider'
 import { getTop } from '@/features/top/api/get-top'
 import {

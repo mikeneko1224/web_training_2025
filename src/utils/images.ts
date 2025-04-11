@@ -217,3 +217,17 @@ export const Logout: ImageModel = {
     width: 20,
     height: 20,
 }
+
+export const errorGirl: ImageModel = {
+    src: '/errorGirl.png',
+    alt: 'errorGirl_logo',
+    width: 205,
+    height: 292,
+}
+
+export const errorBackground: ImageModel = {
+    src: '/errorBackground.png',
+    alt: 'errorBackground_logo',
+    width: 205,
+    height: 292,
+}

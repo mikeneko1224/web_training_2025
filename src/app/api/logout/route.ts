@@ -1,5 +1,4 @@
 import { cookies } from 'next/dist/client/components/headers'
-import { NextRequest, NextResponse } from 'next/server'
 
 export async function DELETE() {
     //apiを叩くURLを作る処理
@@ -13,6 +12,4 @@ export async function DELETE() {
     })
 
     return response
-
-    // return NextResponse.json({ status: 'success' }, { status: 200 })
 }
