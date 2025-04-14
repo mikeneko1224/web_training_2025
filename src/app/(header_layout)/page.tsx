@@ -7,6 +7,11 @@ import {
     TopVolumeListSection,
 } from '@/features/top/components'
 
+export const metadata = {
+    title: 'ガンガンONLINE',
+    description: 'ガンガンONLINE',
+}
+
 const TopPage = async () => {
     const model = await getTop()
     const { banners, update, volumes } = model

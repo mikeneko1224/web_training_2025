@@ -4,11 +4,6 @@ import { Footer } from '@/components/layouts/footer/Footer'
 import { Header } from '@/components/layouts/header/Header'
 import { logo_b } from '@/utils/images'
 
-export const metadata = {
-    title: 'まんがWeb',
-    description: 'まんがWeb',
-}
-
 export default function RootLayout({
     children,
 }: {
