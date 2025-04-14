@@ -5,13 +5,7 @@ import { Footer } from '@/components/layouts/footer/Footer'
 import { Header } from '@/components/layouts/header/Header'
 import { errorBackground, errorGirl, logo_b } from '@/utils/images'
 
-export default function Error({
-    error,
-    reset,
-}: {
-    error: Error & { digest?: string }
-    reset: () => void
-}) {
+export default function Error() {
     return (
         <>
             <header>

@@ -18,6 +18,7 @@ export const generateMetadata = async ({
     return {
         title: `${title.name} | ガンガンONLINE`,
         description: title.description,
+        icons: { icon: '/favicon.png' },
     }
 }
 

@@ -10,6 +10,7 @@ import {
 export const metadata = {
     title: 'ガンガンONLINE',
     description: 'ガンガンONLINE',
+    icons: { icon: '/favicon.png' },
 }
 
 const TopPage = async () => {
