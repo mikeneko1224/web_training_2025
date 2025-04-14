@@ -210,3 +210,24 @@ export const TateyomiLogo: ImageModel = {
     width: 32,
     height: 32,
 }
+
+export const Logout: ImageModel = {
+    src: '/logout.png',
+    alt: 'logout_logo',
+    width: 20,
+    height: 20,
+}
+
+export const errorGirl: ImageModel = {
+    src: '/errorGirl.png',
+    alt: 'errorGirl_logo',
+    width: 205,
+    height: 292,
+}
+
+export const errorBackground: ImageModel = {
+    src: '/errorBackground.png',
+    alt: 'errorBackground_logo',
+    width: 452,
+    height: 349,
+}
