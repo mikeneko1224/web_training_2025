@@ -30,9 +30,6 @@ export default function Modal({
                 alert('アカウント作成に成功しました')
                 setIsOpenModal(false)
             } else {
-                // await fetch(`/api/login?email=${email}&password=${password}`, {
-                //     method: 'post',
-                // })
                 await Login(email, password)
                 alert('ログインしました')
                 setLoggedIn(true)
