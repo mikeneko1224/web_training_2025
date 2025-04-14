@@ -16,20 +16,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang='ja'>
-            <body className='flex flex-col gap-[64px]'>
-                <header>
-                    <div className='h-[26px] bg-black'>
-                        <div className='py-2 pl-[20px]'>
-                            <MyImage image={logo_b} />
-                        </div>
-                    </div>
-                    <Header />
-                </header>
-                {children}
-                <footer>
-                    <Footer />
-                </footer>
-            </body>
+            <body className='flex flex-col'>{children}</body>
         </html>
     )
 }

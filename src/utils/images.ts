@@ -228,6 +228,6 @@ export const errorGirl: ImageModel = {
 export const errorBackground: ImageModel = {
     src: '/errorBackground.png',
     alt: 'errorBackground_logo',
-    width: 205,
-    height: 292,
+    width: 452,
+    height: 349,
 }

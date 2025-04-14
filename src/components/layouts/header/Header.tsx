@@ -57,8 +57,6 @@ export const Header: FC = () => {
         }
     }
 
-    console.log(isLoggedIn)
-
     const logputImage = Logout
 
     return (
@@ -69,8 +67,20 @@ export const Header: FC = () => {
                     {items.map((item, index) => (
                         <HeaderItemRow
                             key={index}
-                            image={isLoggedIn ? logputImage : item.image}
-                            title={isLoggedIn ? 'ログアウト' : item.title}
+                            image={
+                                item.title === 'ログイン'
+                                    ? isLoggedIn
+                                        ? logputImage
+                                        : item.image
+                                    : item.image
+                            }
+                            title={
+                                item.title === 'ログイン'
+                                    ? isLoggedIn
+                                        ? 'ログアウト'
+                                        : item.title
+                                    : item.title
+                            }
                             openModal={
                                 item.title === 'ログイン'
                                     ? !isLoggedIn
