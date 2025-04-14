@@ -23,10 +23,10 @@ export default function Error({
                 <Header />
             </header>
             <div className='mx-auto my-[64px] flex flex-col gap-[32px]'>
-                <div className='font-[24px]'>
+                <div className='text-[24px] font-[400]'>
                     エラーが発生しました。時間をおいて再度お試しください。
                 </div>
-                <div className='relative'>
+                <div className='relative mx-auto'>
                     <MyImage image={errorBackground} />
                     <div className='absolute left-1/4 top-[42px] mx-auto'>
                         <MyImage className='' image={errorGirl} />

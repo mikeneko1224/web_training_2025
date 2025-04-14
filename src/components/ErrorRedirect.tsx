@@ -10,7 +10,7 @@ export const ErrorRedirect: FC = () => {
     useEffect(() => {
         setTimeout(function () {
             window.location.href = '/'
-        }, 5 * 1000)
+        }, 3 * 1000)
     })
 
     return (
@@ -24,10 +24,10 @@ export const ErrorRedirect: FC = () => {
                 <Header />
             </header>
             <div className='mx-auto my-[64px] flex flex-col gap-[32px]'>
-                <div className='font-[24px]'>
-                    このページは存在しません。時間をおいて再度お試しください。
+                <div className='text-[24px] font-[400]'>
+                    このページは存在しません。3秒後にホームに戻ります。
                 </div>
-                <div className='relative'>
+                <div className='relative mx-auto'>
                     <MyImage image={errorBackground} />
                     <div className='absolute left-1/4 top-[42px] mx-auto'>
                         <MyImage className='' image={errorGirl} />
