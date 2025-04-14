@@ -1,8 +1,4 @@
 import './globals.css'
-import MyImage from '@/components/MyImage'
-import { Footer } from '@/components/layouts/footer/Footer'
-import { Header } from '@/components/layouts/header/Header'
-import { logo_b } from '@/utils/images'
 
 export const metadata = {
     title: 'Next.js',

@@ -1,11 +1,18 @@
 'use client'
 
-import MyImage from '@/components/MyImage'
-import { Footer } from '@/components/layouts/footer/Footer'
-import { Header } from '@/components/layouts/header/Header'
+import { FC, useEffect } from 'react'
+import MyImage from './MyImage'
+import { Footer } from './layouts/footer/Footer'
+import { Header } from './layouts/header/Header'
 import { errorBackground, errorGirl, logo_b } from '@/utils/images'
 
-export default function Error() {
+export const ErrorRedirect: FC = () => {
+    useEffect(() => {
+        setTimeout(function () {
+            window.location.href = '/'
+        }, 3 * 1000)
+    })
+
     return (
         <>
             <header>
@@ -18,7 +25,7 @@ export default function Error() {
             </header>
             <div className='mx-auto my-[64px] flex flex-col gap-[32px]'>
                 <div className='text-[24px] font-[400]'>
-                    エラーが発生しました。時間をおいて再度お試しください。
+                    このページは存在しません。3秒後にホームに戻ります。
                 </div>
                 <div className='relative mx-auto'>
                     <MyImage image={errorBackground} />
