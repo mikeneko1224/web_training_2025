@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Maintenance, NetworkError, ServerError } from './api-error'
 import { Endpoint } from './endpoint'
-import Error from '@/app/error'
 
 export const apiClient = async <Response>(
     endpoint: Endpoint<Response>,
