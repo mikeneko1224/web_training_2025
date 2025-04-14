@@ -2,7 +2,7 @@
 
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-export default function useIsLog(): [
+export default function useIsLoggedIn(): [
     boolean,
     Dispatch<SetStateAction<boolean>>
 ] {
