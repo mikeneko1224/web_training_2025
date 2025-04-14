@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation'
+import { ErrorRedirect } from '@/components/ErrorRedirect'
 
 export default async function notFound() {
-    redirect('/')
+    return <ErrorRedirect />
 }
