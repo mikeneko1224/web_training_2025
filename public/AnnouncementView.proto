@@ -3,6 +3,6 @@ package Proto;
 
 message AnnouncementView {
     string title             = 1; //主題
-    optional Period period   = 2; //公開日
-    string subscrition       = 3; //詳細
+    string date              = 2; //公開日
+    string description       = 3; //詳細
 }
