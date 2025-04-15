@@ -1,0 +1,8 @@
+syntax = "proto3";
+package Proto;
+
+message AnnouncementView {
+    string title             = 1; //主題
+    optional Period period   = 2; //公開日
+    string subscrition       = 3; //詳細
+}
