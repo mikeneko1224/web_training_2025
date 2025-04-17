@@ -1,0 +1,8 @@
+syntax = "proto3";
+package Proto;
+
+import "public/Announcement.proto";
+
+message AnnouncementView {
+    repeated Announcement announsmants   = 1; //お知らせ
+}

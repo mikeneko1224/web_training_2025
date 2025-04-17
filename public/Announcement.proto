@@ -1,0 +1,9 @@
+syntax = "proto3";
+package Proto;
+
+message Announcement {
+    uint32 id                = 1; //ID
+    string title             = 2; //主題
+    uint32 date              = 3; //公開日
+    string description       = 4; //詳細
+}
